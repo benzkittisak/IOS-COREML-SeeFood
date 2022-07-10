@@ -16,12 +16,17 @@ import Vision
  จะใช้รูปนี้ไหม หรือว่าจะถ่ายใหม่ดี แบบในแอปที่ชอบให้เราถ่ายบัตรประชาชนอะ
  */
 
-class ViewController: UIViewController , UIImagePickerControllerDelegate , UINavigationController {
+class ViewController: UIViewController , UIImagePickerControllerDelegate , UINavigationControllerDelegate {
 
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-
+    @IBAction func cameraTab(_ sender: UIBarButtonItem) {
+        
+    }
+    
 }
 
