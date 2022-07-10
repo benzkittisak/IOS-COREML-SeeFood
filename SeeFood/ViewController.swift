@@ -84,8 +84,17 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate , UINav
             //        เมื่อ request สามารถทำงานได้สำเร็จ
             guard let results = request.results as? [VNClassificationObservation] else { fatalError("ไม่สามารถวิเคราะห์ข้อมูลได้") }
             
-            print(results)
-            
+//            ถ้าเกิดว่าข้อมูลตัวแรกใน array results ไม่เป็น nil จะให้มันทำไงต่อ
+            if let firstResult = results.first {
+//                ถ้าข้อมูลสุดแรกประกอบไปด้วยคำว่า hotdog จะให้มันทำไงต่อ
+                if firstResult.identifier.contains("hotdog") {
+//                    ให้ navbar เปลี่ยน title เป็น หมาร้อน
+                    self.navigationItem.title = "Hotdog!"
+                }
+                else {
+                    self.navigationItem.title = "Not Hotdog!!"
+                }
+            }
             
         }
         //            ต่อไปถ้ามันประมวลผลรูปสำเร็จ ก็็ให้ตัว Vision เอารูปไปวิเคราะห์ข้อมูล
